@@ -16,8 +16,8 @@ export default function SubjectsTopics({ topic }) {
           style={{
             height: "40px",
             width: "6rem",
-            border: "4px solid #d4c902",
-            backgroundColor: "#00528c",
+            border: "4px solid red",
+            backgroundColor: "skyblue",
             color: "white",
             borderRadius: "6px",
             // fontWeight: "900",

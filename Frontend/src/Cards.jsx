@@ -17,6 +17,7 @@ export default function Cards({ subName, subPath }) {
         justifyContent: "center",
         // justifyItems: "center",
         margin: "10px",
+        
         flexDirection: "row",
       }}
     >
@@ -25,8 +26,11 @@ export default function Cards({ subName, subPath }) {
           width: "10rem",
           height: "5rem",
           textAlign: "center",
+          fontSize:"20px",
           justifyContent: "center",
           justifyItems: "center",
+          backgroundColor:"#4098d3",
+          borderRadius:"20px",
         }}
         onClick={handelButton}
       >

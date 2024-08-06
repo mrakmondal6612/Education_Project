@@ -42,10 +42,12 @@ export default function Python() {
   });
 
   return (
+    <>
     <div className="py-sub">
-      <h1>Python</h1>
+    <h1 className="tl">Python</h1>
       <Units units={chapterName} subjectName={subjectName} />
     </div>
+    </>
   );
 }
 // aee{a{a, n}}

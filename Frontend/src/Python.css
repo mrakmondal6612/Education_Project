@@ -1,5 +1,9 @@
 .py-sub{
-    background-color: rgb(13, 123, 196);
-    /* display: flex; */
+    background-image:  linear-gradient(blue, white);
+    display: flex;
+    justify-content:center;
 
+}
+.tl{
+    background-image:  linear-gradient(blue, white);
 }

@@ -14,7 +14,7 @@ import DSA from "./DSA.jsx";
 import IntrocductionToPython from "./DSA.jsx";
 import SubjectsTopics from "./SubjectTopics.jsx";
 import Questions from "./Questions.jsx";
-
+import "./All.css";
 function App() {
   return (
     <>

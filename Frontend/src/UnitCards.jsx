@@ -26,7 +26,7 @@ export default function UnitCards({ unitNo, topic }) {
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       <div
         style={{
-          backgroundColor: "#54c0eb",
+          backgroundColor: "red",
         }}
       >
         <button
@@ -43,6 +43,7 @@ export default function UnitCards({ unitNo, topic }) {
             justifyContent: "center",
             margin: "1rem",
             cursor: "pointer",
+            border:"2px solid red"
           }}
         >
           {unitNo.name}

@@ -115,7 +115,7 @@ export default function Units({ units, subjectName }) {
               type="number"
               value={noOfQues.onemark_mcq}
               min={1}
-              max={5}
+              max={10}
               name="onemark_mcq"
               onChange={noOfQuestion}
             ></input>
@@ -149,9 +149,9 @@ export default function Units({ units, subjectName }) {
           style={{
             height: "40px",
             width: "6rem",
-            border: "4px solid #d4c902",
-            backgroundColor: "#00528c",
-            color: "white",
+            border: "4px solid red",
+            backgroundColor: "yellow",
+            color: "black",
             borderRadius: "6px",
             // fontWeight: "900",
             fontSize: "15px",
