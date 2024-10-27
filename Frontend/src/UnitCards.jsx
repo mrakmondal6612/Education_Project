@@ -33,7 +33,7 @@ export default function UnitCards({ unitNo, topic }) {
           style={{
             height: "50px",
             width: "15rem",
-            border: "4px solid #d4c902",
+            // border: "4px solid #d4c902",
             // backgroundColor: "#00528c",
             color: "black",
             borderRadius: "6px",
@@ -43,7 +43,7 @@ export default function UnitCards({ unitNo, topic }) {
             justifyContent: "center",
             margin: "1rem",
             cursor: "pointer",
-            border:"2px solid red"
+            border: "2px solid red"
           }}
         >
           {unitNo.name}
