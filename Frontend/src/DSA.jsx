@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Units from "./Units";
+import './allsub.css'
 
 export default function DSA() {
   let [chapterName, setChapterName] = useState({
@@ -26,8 +27,8 @@ export default function DSA() {
   });
 
   return (
-    <div>
-      <h1>DSA</h1>
+    <div className="all-sub">
+      <h1  className="tl">DSA</h1>
       <Units units={chapterName} />
     </div>
   );

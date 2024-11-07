@@ -1,0 +1,22 @@
+/* Container styling */
+.subjects-container {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Heading styling */
+  .subjects-heading {
+    font-size: 24px;
+    color:black;
+    margin-bottom: 20px;
+  }
+  
+  /* Card container styling */
+  .card-container {
+    display: flex;
+    background-color: aqua;
+    gap: 15px;
+    justify-content: center;
+  }
+  
