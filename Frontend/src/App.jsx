@@ -15,6 +15,7 @@ import IntrocductionToPython from "./DSA.jsx";
 import SubjectsTopics from "./SubjectTopics.jsx";
 import Questions from "./Questions.jsx";
 import "./All.css";
+import Cpp from "./Cpp.jsx";
 function App() {
   return (
     <>
@@ -26,7 +27,7 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/units" element={<Units />} />
           <Route path="/subjects" element={<Subjects />} />
-          {/* <Route path="/maths" element={<Maths />} /> */}
+          <Route path="/cpp" element={<Cpp />} />
           <Route path="/python" element={<Python />} />
           <Route path="/cprogramming" element={<CProgramming />} />
           <Route path="/dsa" element={<DSA />} />

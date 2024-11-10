@@ -5,7 +5,8 @@ import Questions from "./Questions";
 import { useNavigate } from "react-router-dom";
 import "./Units.css";
 
-const API_KEY = "AIzaSyBz6ZMkM3Ywg2ua8YaIC0q7GVyd4Isblws";
+
+const API_KEY = "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";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 let arr = [];
@@ -39,23 +40,24 @@ export default function Units({ units, subjectName }) {
     console.log(mcq, saq, fib);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const prompt = `Hey listen carefully You have to generate only question from subject : ${subjTopic.subjectName} and chapters : ${subjTopic.units},
-    generate 1 marks ${noOfQues.onemark_mcq} MCQ questions, 1 marks ${noOfQues.onemark_fib} fill in the blank questions, 2 marks ${noOfQues.twomark_short} saq questions
+    generate 1 marks ${mcq} MCQ questions, 1 marks ${fib} fill in the blank questions, 2 marks ${saq} saq questions
     like this..
     
     Group A:                (marks 1)
       1) mcq question 1
+        a) option 1.  b) option 2.  c) option 3.  d) option 4.
       2) mcq question 2
+        a) option 1.  b) option 2.  c) option 3.  d) option 4.
       3) mcq question 3
+        a) option 1.  b) option 2.  c) option 3.  d) option 4.
+      and so one
 
     Group B:                (marks 1)
       1) fill in the blank question 1
-      2) fill in the blank question 2
-      3) fill in the blank question 3
 
     Group C:                (marks 2)
       1) saq question 1
-      2) saq question 2
-      3) saq question 3
+    generate in JSON fromat.
     `;
     setLoading(true);
     try {
