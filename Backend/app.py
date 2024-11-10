@@ -15,7 +15,7 @@ client = Groq(
 )
 
 
-REQ_URL = "http://localhost:3000"
+REQ_URL = "http://127.0.0.1:5173"
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": REQ_URL}})  # Adjust CORS as needed
@@ -30,7 +30,7 @@ def home():
 def get_mcq():
     try:
         topic = request.json["topic"]
-        # print(topic)
+        print(topic)
     except:
         return jsonify([]), 500
     # request.
@@ -43,6 +43,90 @@ Generate 10 mcq question on the topic of {topic} in this given format:
     {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}},
     {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}},
     {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}},
+]```
+"""
+
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
+        model="gemma2-9b-it",  # "llama3-8b-8192",
+    )
+
+    try:
+        content = chat_completion.choices[0].message.content
+        json_str = content.replace("```json", "").replace("```", "")
+        questions = json.loads(json_str)
+    except Exception as e:
+        print(e)
+        return jsonify([]), 200
+    if topic and questions:
+        return jsonify(questions), 200
+    return jsonify([]), 200
+
+
+@app.route("/api/get_questions/get_saq", methods=["POST"])
+def get_saq():
+    try:
+        topic = request.json["topic"]
+        print(topic)
+    except:
+        return jsonify([]), 500
+    # request.
+    # print()
+
+    prompt = f"""
+Generate 10 saq question on the topic of {topic} in this given format:
+
+```json[
+    {{"question": "question", "answer": "answer"}},
+    {{"question": "question", "answer": "answer"}},
+    {{"question": "question", "answer": "answer"}},
+]```
+"""
+
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
+        model="gemma2-9b-it",  # "llama3-8b-8192",
+    )
+
+    try:
+        content = chat_completion.choices[0].message.content
+        json_str = content.replace("```json", "").replace("```", "")
+        questions = json.loads(json_str)
+    except Exception as e:
+        print(e)
+        return jsonify([]), 200
+    if topic and questions:
+        return jsonify(questions), 200
+    return jsonify([]), 200
+
+
+@app.route("/api/get_questions/get_flb", methods=["POST"])
+def get_flb():
+    try:
+        topic = request.json["topic"]
+        print(topic)
+    except:
+        return jsonify([]), 500
+    # request.
+    # print()
+
+    prompt = f"""
+Generate 10 fil in the blank question on the topic of {topic} in this given format:
+
+```json[
+    {{"question": "question", "answer": "answer"}},
+    {{"question": "question", "answer": "answer"}},
+    {{"question": "question", "answer": "answer"}},
 ]```
 """
 
