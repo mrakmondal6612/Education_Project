@@ -1,0 +1,9 @@
+.py-sub{
+    background-image:  linear-gradient(blue, white);
+    display: flex;
+    justify-content:center;
+
+}
+.tl{
+    background-image:  linear-gradient(blue, white);
+}

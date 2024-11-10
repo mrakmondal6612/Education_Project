@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Units from "./Units";
+import './allsub.css'
 
 export default function CProgramming() {
   let [chapterName, setChapterName] = useState({
@@ -66,8 +67,8 @@ export default function CProgramming() {
   });
 
   return (
-    <div>
-      <h1>C Programming</h1>
+    <div  className="all-sub">
+      <h1  className="tl">C Programming</h1>
       <Units units={chapterName} />
     </div>
   );

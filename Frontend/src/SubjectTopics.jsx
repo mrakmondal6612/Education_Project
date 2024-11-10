@@ -17,7 +17,7 @@ export default function SubjectsTopics({ topic }) {
             height: "40px",
             width: "6rem",
             border: "4px solid red",
-            backgroundColor: "skyblue",
+             backgroundImage: "linear-gradient(to right, #ff7e5f, #feb47b)",
             color: "white",
             borderRadius: "6px",
             // fontWeight: "900",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Units from "./Units";
 import SubjectsTopics from "./SubjectTopics";
-import './Python.css';
+import './allsub.css';
 
 export default function Python() {
   const subjectName = "Python";
@@ -43,7 +43,7 @@ export default function Python() {
 
   return (
     <>
-    <div className="py-sub">
+    <div className="all-sub">
     <h1 className="tl">Python</h1>
       <Units units={chapterName} subjectName={subjectName} />
     </div>

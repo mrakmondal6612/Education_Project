@@ -200,7 +200,8 @@ function UnitCards({ unitNo, topic, props }) {
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       <div
         style={{
-          backgroundColor: "#54c0eb",
+          backgroundImage: "linear-gradient(to right, #00c6ff, #0072ff)",
+          borderRadius: "5px",
         }}
       >
         <button
