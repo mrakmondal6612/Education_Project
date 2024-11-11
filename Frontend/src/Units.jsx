@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
-// import { GoogleGenerativeAI } from "@google/generative-ai";
-// import Questions from "./Questions";
 import { useNavigate } from "react-router-dom";
 import "./Units.css";
 
-// let arr = [];
-// let subjTopic = { subjectName: "", units: "" };
-// let ans = "";
+let arr = [];
+let subjTopic = { subjectName: "", units: "" };
+let ans = "";
 
 export default function Units({ units, subjectName }) {
     let [objTopic, SetobjTopic] = useState({
@@ -31,18 +29,19 @@ export default function Units({ units, subjectName }) {
     }
 
     let handelGenerateQs = async (evnt) => {
-        // subjTopic.subjectName = subjectName;
-        // subjTopic.units = arr.join(",");
-        // let mcq = noOfQues.onemark_mcq;
-        // let fib = noOfQues.onemark_fib;
-        // let saq = noOfQues.twomark_short;
-        // console.log(mcq, saq, fib);
+        subjTopic.subjectName = subjectName;
+        subjTopic.units = arr.join(",");
+      
+        let mcq = noOfQues.onemark_mcq;
+        let fib = noOfQues.onemark_fib;
+        let saq = noOfQues.twomark_short;
+        console.log(mcq, saq, fib);
 
         setLoading(true);
         try {
             // Backen URL fetching here....
             const response = await fetch(
-                "http://127.0.0.1:8000/api/get_questions/get_flb",
+                "http://127.0.0.1:8080/api/get_questions/get_flb",
                 {
                     method: "POST",
                     headers: {
@@ -53,8 +52,8 @@ export default function Units({ units, subjectName }) {
                     }),
                 }
             );
-            if(response.ok){
-              console.log(await response.json())
+            if (response.ok) {
+                console.log(await response.json());
             }
             setLoading(false);
 
@@ -152,9 +151,7 @@ export default function Units({ units, subjectName }) {
                     onClick={handelGenerateQs}>
                     Generate
                 </button>
-                <div>
-                    {/* <p>{ans}</p> */}
-                </div>
+                <div>{/* <p>{ans}</p> */}</div>
             </div>
             <img
                 src='../loading.gif'

@@ -69,7 +69,7 @@ export default function CProgramming() {
   return (
     <div  className="all-sub">
       <h1  className="tl">C Programming</h1>
-      <Units units={chapterName} />
+      <Units units={chapterName} subjectName={"C Programing"}/>
     </div>
   );
 }

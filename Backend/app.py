@@ -15,7 +15,7 @@ client = Groq(
 )
 
 
-REQ_URL = "http://127.0.0.1:5173"
+REQ_URL = "http://127.0.0.1:5174"
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": REQ_URL}})  # Adjust CORS as needed
@@ -24,6 +24,131 @@ CORS(app, resources={r"/*": {"origins": REQ_URL}})  # Adjust CORS as needed
 @app.route("/", methods=["GET"])
 def home():
     return "API is running", 200
+
+    # @app.route("/api/get_questions/all_questions", methods=["POST"])
+    # def get_ques():
+    try:
+        subjName = request.json["subjectName"]
+        topic = request.json["topic"]
+        mcq = request.json["mcq"]
+        saq = request.json["saq"]
+        fib = request.json["fib"]
+        print(subjName)
+    except:
+        return jsonify({}), 500
+    # request.
+    # print()
+
+    prompt = f"""
+Generate {mcq} MCQ questions, {saq} SAQ questions, {fib} Fill in the blanks on this {subjName} subject and in this {topic} topics in this format:
+
+
+```json{
+    "mcq": [
+    {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}},
+    {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}},
+    {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}},
+],
+"saq": [
+    {{"question": "question", "answer": "answer"}},
+    {{"question": "question", "answer": "answer"}},
+    {{"question": "question", "answer": "answer"}},
+],
+"fib": [
+    {{"question": "question", "answer": "answer"}},
+    {{"question": "question", "answer": "answer"}},
+    {{"question": "question", "answer": "answer"}},
+]
+
+}```
+"""
+
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
+        model="gemma2-9b-it",  # "llama3-8b-8192",
+    )
+
+    try:
+        content = chat_completion.choices[0].message.content
+        # json_str = content.replace("```json", "").replace("```", "")
+        # questions = json.loads(json_str)
+        print(content)
+    except Exception as e:
+        print(e)
+        return jsonify({}), 200
+    if subjName and topic and mcq and saq and fib and questions:
+        return jsonify(questions), 200
+    return jsonify({}), 200
+
+
+@app.route("/api/get_questions/all_questions", methods=["POST"])
+def get_ques():
+    try:
+        # Extracting required parameters from the request
+        subjName = request.json["subjectName"]
+        topic = request.json["topic"]
+        mcq = request.json["mcq"]
+        saq = request.json["saq"]
+        fib = request.json["fib"]
+        print(subjName)
+
+        # Check if any required field is missing
+        if not all([subjName, topic, mcq, saq, fib]):
+            return jsonify({"error": "Missing required fields"}), 400
+
+        # Prompt to generate questions
+        prompt = f"""
+        Generate {mcq} MCQ questions, {saq} SAQ questions, {fib} Fill in the blanks on this {subjName} subject and in this {topic} topics in this format:
+
+        ```json
+        {{
+            "mcq": [
+                {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}},
+                {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}},
+                {{"question": "question", "options": ["option1", "option2", "option3", "option4"], "answer": "answer"}}
+            ],
+            "saq": [
+                {{"question": "question", "answer": "answer"}},
+                {{"question": "question", "answer": "answer"}},
+                {{"question": "question", "answer": "answer"}}
+            ],
+            "fib": [
+                {{"question": "question", "answer": "answer"}},
+                {{"question": "question", "answer": "answer"}},
+                {{"question": "question", "answer": "answer"}}
+            ]
+        }}
+        ```
+        """
+
+        # Requesting chat completion
+        chat_completion = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}], model="gemma2-9b-it"
+        )
+
+        # Attempting to parse the response content
+        content = chat_completion.choices[0].message.content
+        json_str = content.replace("```json", "").replace("```", "").strip()
+        questions = json.loads(json_str)
+
+        return jsonify(questions), 200
+
+    except KeyError as e:
+        # Handling missing keys
+        return jsonify({"error": f"Missing field: {e}"}), 400
+    except json.JSONDecodeError as e:
+        # Handling JSON parsing errors
+        print("JSON Decode Error:", e)
+        return jsonify({"error": "Failed to parse response"}), 500
+    except Exception as e:
+        # Handling other general exceptions
+        print("Error:", e)
+        return jsonify({"error": "An error occurred"}), 500
 
 
 @app.route("/api/get_questions/get_mcq", methods=["POST"])
@@ -294,4 +419,4 @@ def generate_certificate():
 
 
 if __name__ == "__main__":
-    app.run(host="localhost", port=8000, debug=True)
+    app.run(host="localhost", port=8080, debug=True)
