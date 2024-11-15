@@ -1,10 +1,10 @@
 /* General container styles */
 .login-container {
-  height: 150vh;
+  height: 92vh;
   display: flex;
   justify-content: center; 
   /* align-items: center; */
-  padding: 10px; /* Add padding for smaller screens */
+  padding: 15px; /* Add padding for smaller screens */
   background: linear-gradient(#3b82f6, #9333ea);
   font-family: "Arial", sans-serif;
   box-sizing: border-box;
@@ -27,7 +27,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #3b82f6;
+  color: #108a91;
 }
 
 .login-subtitle {
@@ -53,8 +53,8 @@
 }
 
 .login-input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  border-color: #252e3d;
+  box-shadow: 0 0 5px rgba(0, 17, 43, 0.5);
 }
 
 /* Dropdown styling */
@@ -213,7 +213,7 @@
   }
 
   .signup-link:hover {
-    font-size: 16px; /* Ensure hover effects are subtle on small screens */
+    font-size: 14px; /* Ensure hover effects are subtle on small screens */
   }
 }
 .password-container {
