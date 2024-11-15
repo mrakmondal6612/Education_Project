@@ -149,8 +149,8 @@ export default function Units({ units, subjectName }) {
           style={{
             height: "40px",
             width: "6rem",
-            border: "4px solid red",
-            backgroundColor: "yellow",
+            border: "2px solid red",
+            backgroundColor: "pink",
             color: "black",
             borderRadius: "6px",
             // fontWeight: "900",
@@ -206,7 +206,7 @@ function UnitCards({ unitNo, topic, props }) {
           style={{
             height: "50px",
             width: "15rem",
-            border: "4px solid #d4c902",
+            border: "4px solid aqua",
             // backgroundColor: "#00528c",
             color: "black",
             borderRadius: "6px",

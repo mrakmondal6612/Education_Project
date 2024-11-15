@@ -1,4 +1,4 @@
-// import "./App.css";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Registration from "./Registration";
@@ -15,6 +15,8 @@ import IntrocductionToPython from "./DSA.jsx";
 import SubjectsTopics from "./SubjectTopics.jsx";
 import Questions from "./Questions.jsx";
 import "./All.css";
+import SignUp from "./Signup.jsx"; // Only once here
+
 function App() {
   return (
     <>
@@ -23,10 +25,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} /> {/* Ensure this route uses SignUp */}
           <Route path="/registration" element={<Registration />} />
           <Route path="/units" element={<Units />} />
           <Route path="/subjects" element={<Subjects />} />
-          {/* <Route path="/maths" element={<Maths />} /> */}
           <Route path="/python" element={<Python />} />
           <Route path="/cprogramming" element={<CProgramming />} />
           <Route path="/dsa" element={<DSA />} />
