@@ -16,7 +16,7 @@ import SubjectsTopics from "./SubjectTopics.jsx";
 import Questions from "./Questions.jsx";
 import "./All.css";
 import SignUp from "./Signup.jsx"; // Only once here
-
+ 
 function App() {
   return (
     <>

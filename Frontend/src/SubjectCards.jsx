@@ -1,8 +1,8 @@
 import Cards from "./Cards.jsx";
 
 export default function SubjectsCard() {
-  let subjects = ["Python", "C Programming", "DSA"];
-  let subPaths = ["/python", "/cprogramming", "/dsa"];
+  let subjects = ["Python", "C Programming", "C++", "DSA"];
+  let subPaths = ["/python", "/cprogramming", "/cpp", "/dsa"];
 
   const containerStyle = {
     padding: "20px",

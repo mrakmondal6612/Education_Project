@@ -1,29 +1,28 @@
 import { useState } from "react";
 import Units from "./Units";
-import './allsub.css'
 
-export default function CProgramming() {
+export default function Cpp() {
   let [chapterName, setChapterName] = useState({
     u1: {
       name: " Introduction",
       path: "/subjectstopics",
       topics: [
-        "History of C Language, Features of C",
-        "First C Program, C printf() and scanf(), C input/output functions.",
-        "Variables in C, Data Types in C, Keywords in C, C identifiers & C comments",
+        "History of C++ Language, Features of C++",
+        "First C++ Program, cout and cin keywords.",
+        "Variables in C++, Data Types in C++, Keywords in C++, C++ identifiers & C++ comments",
       ],
     },
     u2: {
-      name: " Control Statements in C",
+      name: " Control Statements in C++",
       path: "/subjectstopics",
       topics: [" if statement", "  loops", "break continue & pass statements"],
     },
     u3: {
-      name: " Array in C",
+      name: " Array in C++",
       path: "/subjectstopics",
       topics: [
         "Arrays, Array basics.",
-        "2D array, How to implement and use a 2D array in program",
+        "2D array, How to implement and use a 2D array in C++ program",
         "Pointer to Array",
         "Passing array to function ",
       ],
@@ -32,8 +31,8 @@ export default function CProgramming() {
       name: "Strings",
       path: "/subjectstopics",
       topics: [
-        "C Strings and String functions.",
-        "C strcat(), C strncat(), C strchr(), C strcmp(), C strncmp(), C strcoll(), C strcpy(), C strncpy(), C strrchr(), C strspn(), C strstr(), C strcspn(), strlen()",
+        "C++ Strings and String functions.",
+        "String methods in C++",
       ],
     },
     u5: {
@@ -48,13 +47,13 @@ export default function CProgramming() {
     u6: {
       name: "Structure",
       path: "/subjectstopics",
-      topics: ["Structures in C "],
+      topics: ["Structures in C++ "],
     },
     u7: {
       name: " Pointer in C Programming",
       path: "/subjectstopics",
       topics: [
-        "C Pointers ",
+        "C++ Pointers ",
         " Pointer to pointer ",
         "Function Pointers , Passing pointer to functions  ",
       ],
@@ -67,9 +66,9 @@ export default function CProgramming() {
   });
 
   return (
-    <div  className="all-sub">
-      <h1  className="tl">C Programming</h1>
-      <Units units={chapterName} subjectName={"C Programing"}/>
+    <div>
+      <h1>C++ Programming</h1>
+      <Units units={chapterName} />
     </div>
   );
 }
